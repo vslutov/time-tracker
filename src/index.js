@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createBrowserHistory } from 'history'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import { App } from './App'
 import { createStore } from './App/flux'
 import { register } from './serviceWorker'
