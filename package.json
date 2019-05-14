@@ -54,6 +54,7 @@
   "devDependencies": {
     "@craco/craco": "^3.6.0",
     "babel-plugin-transform-react-pug": "^7.0.0",
+    "cli-real-favicon": "0.0.7",
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
     "eslint-plugin-react-pug": "^0.6.0",
