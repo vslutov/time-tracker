@@ -2,6 +2,7 @@
   "name": "@vslutov/time-tracker",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://vslutov.github.io/timetracker",
   "dependencies": {
     "@vslutov/redux-flux": "^0.2.2",
     "@vslutov/router-middleware": "^0.1.2",
@@ -26,10 +27,17 @@
     "cz": "git-cz",
     "yo": "yo component",
     "version": "npm install && npm run clean && npm run build && npm prune && npm dedupe && npm shrinkwrap && git add npm-shrinkwrap.json",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "plugins": [
+      "react-pug"
+    ],
+    "extends": [
+      "plugin:react-pug/all"
+    ]
   },
   "browserslist": {
     "production": [
@@ -49,6 +57,7 @@
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
     "eslint-plugin-react-pug": "^0.6.0",
+    "gh-pages": "^2.0.1",
     "husky": "^2.1.0",
     "mz": "^2.7.0",
     "node-sass": "^4.11.0",
@@ -72,14 +81,6 @@
   "standardx": {
     "ignore": [
       "generator-component/generators/app/templates"
-    ]
-  },
-  "eslintConfig": {
-    "plugins": [
-      "react-pug"
-    ],
-    "extends": [
-       "plugin:react-pug/all"
     ]
   }
 }
