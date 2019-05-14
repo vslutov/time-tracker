@@ -2,7 +2,7 @@
   "name": "@vslutov/time-tracker",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://vslutov.github.io/timetracker",
+  "homepage": "https://vslutov.github.io/time-tracker",
   "dependencies": {
     "@vslutov/redux-flux": "^0.2.2",
     "@vslutov/router-middleware": "^0.1.2",
