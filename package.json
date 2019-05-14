@@ -61,7 +61,7 @@
     "husky": "^2.1.0",
     "mz": "^2.7.0",
     "node-sass": "^4.11.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.0.1",
     "rimraf": "^2.6.3",
     "standardx": "^3.0.1",
     "yeoman-generator": "^3.2.0",
