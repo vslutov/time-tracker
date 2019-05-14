@@ -2,7 +2,7 @@
 
 Time tracker based on gitlab
 
-[![Build Status](https://travis-ci.org/vslutov/time-tracker.svg?branch=master)](https://travis-ci.org/vslutov/time-tracker)
+[![Build Status](https://travis-ci.org/vslutov/time-tracker.svg?branch=master)](https://travis-ci.org/vslutov/time-tracker) [![Greenkeeper badge](https://badges.greenkeeper.io/vslutov/time-tracker.svg)](https://greenkeeper.io/)
 
 ## Available Scripts
 
