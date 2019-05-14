@@ -4,12 +4,11 @@ node_js:
 
 jobs:
   include:
-    - stage: build
+    - stage: deploy
       node_js: "stable"
       script:
         - npm run build
-    - stage: deploy
-      node_js: "stable"
+
       deploy:
         provider: pages
         local_dir: build
