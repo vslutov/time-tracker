@@ -1,0 +1,1 @@
+export { <%= upperComponent %> } from './container'

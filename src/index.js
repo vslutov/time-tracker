@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
-import * as serviceWorker from './serviceWorker'
+import { createBrowserHistory } from 'history'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import { App } from './App'
+import { createStore } from './App/flux'
+import { register } from './serviceWorker'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
+const history = createBrowserHistory()
+const store = createStore({ history })
+
+ReactDOM.render(pug`App(history=history, store=store)`, document.getElementById('root'))
+
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister()
+register()

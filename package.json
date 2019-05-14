@@ -4,21 +4,24 @@
   "private": false,
   "dependencies": {
     "@vslutov/redux-flux": "^0.2.2",
+    "@vslutov/router-middleware": "^0.1.2",
     "bootstrap": "^4.3.1",
+    "connected-react-router": "^6.4.0",
+    "cross-fetch": "^3.0.2",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-head": "^3.1.1",
     "react-redux": "^7.0.2",
+    "react-router": "^5.0.0",
     "reactstrap": "^8.0.0",
     "redux": "^4.0.1",
-    "redux-batch-middleware": "^0.2.0",
-    "standard": "^12.0.1"
+    "redux-batch-middleware": "^0.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "standard",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "standardx",
     "clean": "rimraf build",
     "cz": "git-cz",
     "yo": "yo component",
@@ -41,12 +44,17 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^3.6.0",
+    "babel-plugin-transform-react-pug": "^7.0.0",
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
+    "eslint-plugin-react-pug": "^0.6.0",
     "husky": "^2.1.0",
+    "mz": "^2.7.0",
     "node-sass": "^4.11.0",
     "react-scripts": "2.1.8",
     "rimraf": "^2.6.3",
+    "standardx": "^3.0.1",
     "yeoman-generator": "^3.2.0",
     "yo": "^2.0.6"
   },
@@ -60,5 +68,18 @@
       "pre-commit": "npm test",
       "pre-push": "npm test"
     }
+  },
+  "standardx": {
+    "ignore": [
+      "generator-component/generators/app/templates"
+    ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "react-pug"
+    ],
+    "extends": [
+       "plugin:react-pug/all"
+    ]
   }
 }
