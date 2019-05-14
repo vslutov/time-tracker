@@ -2,6 +2,8 @@
 
 Time tracker based on gitlab
 
+[![Build Status](https://travis-ci.org/vslutov/time-tracker.svg?branch=master)](https://travis-ci.org/vslutov/time-tracker)
+
 ## Available Scripts
 
 In the project directory, you can run:
