@@ -77,7 +77,10 @@ export const TrackerComponent = ({ startWork, startTime, message, setMessage, co
             |  Start work session
     `
   } else if (completeTime != null) {
-    const spend = Math.ceil((completeTime - startTime) / (60 * 1000))
+    const preSpentMinutes = Math.ceil((completeTime - startTime) / (60 * 1000))
+    const spentHours = Math.floor(preSpentMinutes / 60)
+    const spentMinutes = preSpentMinutes - 60 * spentHours
+
     const startDay = getDate(new Date(startTime))
 
     return pug`
@@ -87,7 +90,7 @@ export const TrackerComponent = ({ startWork, startTime, message, setMessage, co
         pre
           code
             = message + '\n'
-            = '/spend ' + spend + 'm ' + startDay
+            = '/spend ' + spentHours + 'h' + spentMinutes + 'm ' + startDay
 
       Button(onClick=reset color="primary")
         Reload(width=24 height=24)
