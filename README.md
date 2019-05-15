@@ -1,21 +1,18 @@
 # Time tracker
 
-Time tracker based on gitlab
+Time tracker для gitlab: https://vslutov.github.io/time-tracker/
+
+Приложение позволяет автоматизировать заполнение гитлаб time tracking'а. Вам нужно вносить задачи, которые вы делали за день, время за вас считает программа.
 
 [![Build Status](https://travis-ci.org/vslutov/time-tracker.svg?branch=master)](https://travis-ci.org/vslutov/time-tracker)
 
-## Available Scripts
+## Схема работы
+1. Когда начинаете работать, нажимаете "начать работу".
+2. В процессе работы заносите все исполняемые задачи в специальное поле.
+3. В конце рабочего дня жмете закончить.
+4. Трекер сам подсчитывает потраченное время.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Run code-style check.
+## Киллер фичи
+- Вкладку можно закрывать, ничего не потеряется.
+- Работает даже при отключенном интернете, если вы открывали сайт раньше.
+- Можно установить на рабочий стол мобильного телефона или закрепить вкладку в браузере.
