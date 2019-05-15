@@ -3,6 +3,12 @@
   "version": "0.1.5",
   "private": false,
   "homepage": "https://vslutov.github.io/time-tracker",
+  "author": "Vladimir Lutov <vs@lutov.net> (https://lutov.net)",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vslutov/time-tracker.git"
+  },
   "dependencies": {
     "@vslutov/react-bytesize-icons": "^0.9.1",
     "@vslutov/redux-flux": "^0.2.2",
