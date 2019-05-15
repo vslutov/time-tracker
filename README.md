@@ -4,7 +4,7 @@ Time tracker для gitlab: https://vslutov.github.io/time-tracker/
 
 Приложение позволяет автоматизировать заполнение гитлаб time tracking'а. Вам нужно вносить задачи, которые вы делали за день, время за вас считает программа.
 
-[![Build Status](https://travis-ci.org/vslutov/time-tracker.svg?branch=master)](https://travis-ci.org/vslutov/time-tracker)
+[![Build Status](https://travis-ci.org/vslutov/time-tracker.svg?branch=master)](https://travis-ci.org/vslutov/time-tracker) [![Greenkeeper badge](https://badges.greenkeeper.io/vslutov/time-tracker.svg)](https://greenkeeper.io/)
 
 ## Схема работы
 1. Когда начинаете работать, нажимаете "начать работу".

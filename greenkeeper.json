@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "generator-component/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
