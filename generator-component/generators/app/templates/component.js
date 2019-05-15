@@ -1,3 +1,5 @@
 import React from 'react'
 
-export <%= upperComponent %>Component = => null
+export const <%= upperComponent %>Component = () => (
+  pug``
+)
