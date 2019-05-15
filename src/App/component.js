@@ -1,10 +1,13 @@
 import React from 'react'
-import { Navbar, NavbarBrand, Container } from 'reactstrap'
+import { Container } from 'reactstrap'
+
+import { Navbar } from '../Navbar'
+import { Tracker } from '../Tracker'
 
 export const AppComponent = () => (
   pug`
-    Navbar(color="light",light,expand="md")
-      Container
-        NavbarBrand(href=process.env.PUBLIC_URL + "/") Time tracker
+    Navbar
+    Container.mt-2
+      Tracker
   `
 )

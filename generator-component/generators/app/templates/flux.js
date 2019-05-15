@@ -1,6 +1,6 @@
 import { createFlux } from '@vslutov/redux-flux'
 
-{ setActions, <%= lowerComponent %>Reducer, defaultSelectors } = createFlux({
+const { setActions, <%= lowerComponent %>Reducer, defaultSelectors } = createFlux({
   prefix: '<%= snakeComponent %>',
   defaultValues: {
   }
