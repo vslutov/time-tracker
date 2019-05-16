@@ -1,104 +1,94 @@
 import React, { useState } from 'react'
-import { CaretRight, Checkmark, Reload } from '@vslutov/react-bytesize-icons'
-import { Button, Row, Col, Input, Form as BSForm, FormGroup, Label, Alert } from 'reactstrap'
-import { Form, Field } from 'react-final-form'
+import { CaretRight, Checkmark, Reload, ArrowLeft, Close } from '@vslutov/react-bytesize-icons'
+import { Button, Row, Col, FormGroup as BSFormGroup } from 'reactstrap'
 
-const Textarea = ({ input, meta }) => (
-  <Input type='textarea' id={input.name} {...input} />
-)
+import { InputTextarea, FormGroup, Form, OnBlur } from '../Form'
 
-const OnBlurState = ({ meta: { active }, input, render }) => {
-  const [previous, setPrevious] = useState(active)
+export const TrackerComponent = ({ startWork, startTime, message, setMessage, completeWork, completeTime, reset, continueWork, editedMessage, setEditedMessage }) => {
+  const [resetConfirming, setResetConfirming] = useState(false)
+  const beginReset = () => setResetConfirming(true)
 
-  if (previous && !active) {
-    render(input.value)
-  }
+  if (resetConfirming) {
+    const cancelReset = () => setResetConfirming(false)
+    const confirmReset = () => {
+      reset()
+      setResetConfirming(false)
+    }
 
-  if (previous !== active) {
-    setPrevious(active)
-  }
+    return pug`
+      Row
+        Col
+          p Are you sure want reset progress? This action cannot be undone.
 
-  return null
-}
+      Row
+        Col
+          Button(outline color="secondary" onClick=cancelReset)
+            Close(width=24 height=24)
+            |  Cancel
 
-const OnBlur = ({ name, render }) => {
-  const compile = props => {
-    return <OnBlurState {...props} render={render} />
-  }
-
-  const subscription = {
-    active: true,
-    value: true
-  }
-
-  return pug`
-    Field(name=name subscription=subscription render=compile)
-  `
-}
-
-const DescriptionForm = ({ onSubmit, initialValues, setMessage }) => {
-  const DescriptionFormComponent = ({ handleSubmit, pristine, invalid }) => (
-    pug`
-      BSForm(onSubmit=handleSubmit)
-        FormGroup
-          Label(for="message") Write there the tasks, which you do by day
-
-          Field(name="message" component=Textarea)
-
-          OnBlur(name="message" render=setMessage)
-
-        Button(color="primary" type="submit" disabled=invalid)
-          Checkmark(width=24 height=24)
-          |  Submit
+          Button(outline color="danger" onClick=confirmReset).ml-2
+            Checkmark(width=24 height=24)
+            |  Reset progress
     `
-  )
-
-  return pug`Form(onSubmit=onSubmit initialValues=initialValues render=DescriptionFormComponent keepDirtyOnReinitialize)`
-}
-
-const getDate = ts => {
-  const year = ts.getFullYear()
-  const month = `${Math.floor(ts.getMonth() / 10)}${ts.getMonth() % 10}`
-  const date = `${Math.floor(ts.getDate() / 10)}${ts.getDate() % 10}`
-  return `${year}-${month}-${date}`
-}
-
-export const TrackerComponent = ({ startWork, startTime, message, setMessage, completeWork, completeTime, reset }) => {
-  const initialValues = {
-    message
   }
 
   if (startTime == null) {
     return pug`
       Row
         Col
-          Button(color="primary" onClick=startWork)
+          Button(outline color="primary" onClick=startWork)
             CaretRight(width=24 height=24)
             |  Start work session
     `
-  } else if (completeTime != null) {
-    const preSpentMinutes = Math.ceil((completeTime - startTime) / (60 * 1000))
-    const spentHours = Math.floor(preSpentMinutes / 60)
-    const spentMinutes = preSpentMinutes - 60 * spentHours
+  }
 
-    const startDay = getDate(new Date(startTime))
+  if (completeTime != null) {
+    const initialValues = {
+      editedMessage
+    }
+
+    const submit = () => null
 
     return pug`
-      p Copy this text to gitlab issue comment
+      Form(onSubmit=submit initialValues=initialValues)
+        FormGroup(label="Edit message, if needed" component=InputTextarea name="editedMessage")
 
-      Alert(color="secondary" fade=false)
-        pre
-          code
-            = message + '\n'
-            = '/spend ' + spentHours + 'h' + spentMinutes + 'm ' + startDay
+        OnBlur(name="editedMessage" render=setEditedMessage)
 
-      Button(onClick=reset color="primary")
-        Reload(width=24 height=24)
-        |  Reset
-    `
-  } else {
-    return pug`
-      DescriptionForm(onSubmit=completeWork initialValues=initialValues setMessage=setMessage)
+        BSFormGroup(row)
+          Col(sm={ size: 10, offset: 2 })
+            Button(color="primary" outline type="submit")
+              Checkmark(width=24 height=24)
+              | Commit workday
+
+            Button(color="secondary" outline onClick=continueWork).ml-2
+              ArrowLeft(width=24 height=24)
+              | Continue work
+
+            Button(color="danger" outline onClick=beginReset).ml-2
+              Reload(width=24 height=24)
+              | Reset progress
     `
   }
+
+  const initialValues = {
+    message
+  }
+
+  return pug`
+    Form(onSubmit=completeWork initialValues=initialValues)
+      FormGroup(label="Write there the tasks, which you have done by the day" component=InputTextarea name="message")
+
+      OnBlur(name="message" render=setMessage)
+
+      BSFormGroup(row)
+        Col(sm={ size: 10, offset: 2 })
+          Button(color="primary" outline type="submit")
+            Checkmark(width=24 height=24)
+            |  Finish workday
+
+          Button(color="danger" outline onClick=beginReset).ml-2
+            Reload(width=24 height=24)
+            |  Reset progress
+  `
 }

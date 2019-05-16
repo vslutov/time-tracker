@@ -5,7 +5,8 @@ const { setActions, trackerReducer, defaultSelectors } = createFlux({
   defaultValues: {
     startTime: null,
     completeTime: null,
-    message: ''
+    message: '',
+    editedMessage: ''
   }
 })
 
@@ -14,13 +15,17 @@ export const actions = {
   startWork: () => (
     setActions.setStartTime(+new Date())
   ),
-  completeWork: (event) => (
+  completeWork: () => (
     setActions.setCompleteTime(+new Date())
+  ),
+  continueWork: () => (
+    setActions.setCompleteTime(null)
   ),
   reset: () => ([
     setActions.setStartTime(null),
     setActions.setCompleteTime(null),
-    setActions.setMessage('')
+    setActions.setMessage(''),
+    setActions.setEditedMessage('')
   ])
 }
 export { defaultSelectors as selectors }

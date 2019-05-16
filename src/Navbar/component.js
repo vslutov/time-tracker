@@ -1,10 +1,23 @@
-import React from 'react'
-import { Navbar, NavbarBrand, Container } from 'reactstrap'
+import React, { useState } from 'react'
+import { Navbar, Container, NavbarToggler, Collapse, Nav, NavItem } from 'reactstrap'
+import { Link, NavLink } from 'react-router-dom'
 
-export const NavbarComponent = () => (
-  pug`
+export const NavbarComponent = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
+
+  return pug`
     Navbar(color="light",light,expand="md")
       Container
-        NavbarBrand(href=process.env.PUBLIC_URL + "/") Time tracker
+        Link.navbar-brand(to=process.env.PUBLIC_URL + "/") Time tracker
+
+        NavbarToggler(onClick=toggle)
+
+        Collapse(isOpen=isOpen navbar)
+          Nav(navbar): NavItem
+            NavLink.nav-link(to=(process.env.PUBLIC_URL + "/settings")) Settings
   `
-)
+}
