@@ -1,0 +1,6 @@
+.travis.yml
+faviconDescription.json
+greenkeeper.json
+generator-component
+build
+*.tgz
