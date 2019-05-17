@@ -4,6 +4,15 @@ node_js:
 
 jobs:
   include:
+    - stage: npm release
+      node_js: "stable"
+      deploy:
+        provider: npm
+        api_key: $NPM_API_KEY
+        email: vs@lutov.net
+        on:
+          tags: true
+
     - stage: deploy
       node_js: "stable"
       script:
@@ -14,6 +23,5 @@ jobs:
         local_dir: build
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
-        keep_history: true
         on:
           tags: true
