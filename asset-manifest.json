@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/time-tracker/static/css/main.355b6af9.chunk.css",
+    "main.js": "/time-tracker/static/js/main.344e6935.chunk.js",
+    "main.js.map": "/time-tracker/static/js/main.344e6935.chunk.js.map",
+    "runtime~main.js": "/time-tracker/static/js/runtime~main.ee8c59cf.js",
+    "runtime~main.js.map": "/time-tracker/static/js/runtime~main.ee8c59cf.js.map",
+    "static/css/2.266e55a5.chunk.css": "/time-tracker/static/css/2.266e55a5.chunk.css",
+    "static/js/2.407c1522.chunk.js": "/time-tracker/static/js/2.407c1522.chunk.js",
+    "static/js/2.407c1522.chunk.js.map": "/time-tracker/static/js/2.407c1522.chunk.js.map",
+    "index.html": "/time-tracker/index.html",
+    "precache-manifest.05477ba578c74ada25164a409dd11437.js": "/time-tracker/precache-manifest.05477ba578c74ada25164a409dd11437.js",
+    "service-worker.js": "/time-tracker/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/time-tracker/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.355b6af9.chunk.css.map": "/time-tracker/static/css/main.355b6af9.chunk.css.map"
+  }
+}
