@@ -43,14 +43,10 @@ export const TrackerComponent = ({ startWork, startTime, message, setMessage, co
   }
 
   if (completeTime != null) {
-    const initialValues = {
-      editedMessage
-    }
-
     const submit = () => null
 
     return pug`
-      Form(onSubmit=submit initialValues=initialValues)
+      Form(onSubmit=submit initialValues={editedMessage})
         FormGroup(label="Edit message, if needed" component=InputTextarea name="editedMessage")
 
         OnBlur(name="editedMessage" render=setEditedMessage)
@@ -71,12 +67,8 @@ export const TrackerComponent = ({ startWork, startTime, message, setMessage, co
     `
   }
 
-  const initialValues = {
-    message
-  }
-
   return pug`
-    Form(onSubmit=completeWork initialValues=initialValues)
+    Form(onSubmit=completeWork initialValues={message})
       FormGroup(label="Write there the tasks, which you have done by the day" component=InputTextarea name="message")
 
       OnBlur(name="message" render=setMessage)
